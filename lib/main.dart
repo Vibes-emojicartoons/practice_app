@@ -15,22 +15,42 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Colors.brown[500],
           leading: Icon(Icons.menu),
-          title: Center(child: Text("Eish jah neh")),
+          title: Center(child: Text("Ke nna Bola")),
           actions: [InkWell(child: Icon(Icons.settings))],
         ),
 
         body: Center(
           child: Container(
             alignment: Alignment.center,
-            padding: EdgeInsets.all(20),
+            //padding: EdgeInsets.all(20),//
             height: 300,
             width: 300,
-            decoration: BoxDecoration(
+            child: ClipOval(
+              child: Image.asset('pictures/koki.png', fit: BoxFit.cover),
+            ),
+
+            /*decoration: BoxDecoration(
+              color: Colors.pink,
+              borderRadius: BorderRadius.circular(150),
+              image: DecorationImage(
+                image: AssetImage('pictures/koki.png'),
+                fit: BoxFit.cover,
+              ),
+            ),*/
+
+            /*child: Image.asset(
+              "pictures/koki.png",
+              fit: BoxFit.contain,
+              alignment: Alignment.centerLeft,
+              repeat: ImageRepeat.repeatY,*/
+
+            /*decoration: BoxDecoration(
               color: Colors.purpleAccent,
               border: Border.all(width: 2, color: Colors.brown),
               borderRadius: BorderRadius.all(Radius.circular(150)),
-            ),
-            child: Text(
+            ),*/
+
+            /*child: Text(
               'YASHO SKEEM',
               style: TextStyle(
                 fontFamily: 'Rancho',
@@ -42,7 +62,7 @@ class MyApp extends StatelessWidget {
                 wordSpacing: 10,
                 letterSpacing: 5,
               ),
-            ),
+            )*/
           ),
         ),
       ),
