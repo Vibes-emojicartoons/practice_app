@@ -18,8 +18,40 @@ class MyApp extends StatelessWidget {
           title: Center(child: Text("Ke nna Bola")),
           actions: [InkWell(child: Icon(Icons.settings))],
         ),
+        body: SafeArea(
+          child: ListView(
+            padding: EdgeInsets.all(10),
+            scrollDirection: Axis.horizontal,
+            children: [
+              Container(
+                color: Colors.red,
+                width: 100,
+                child: Text(
+                  'Ke Bola skeem',
+                  style: TextStyle(
+                    fontFamily: 'Rancho',
+                    fontSize: 26,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+              Container(color: Colors.pink, width: 200),
+              Container(color: Colors.yellow, width: 300),
+              Container(color: Colors.black, width: 400),
+              Container(color: Colors.brown, width: 500),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
 
-        body: Center(
+
+
+//Placing an image in different ways//
+    /*body: Center(
           child: Container(
             alignment: Alignment.center,
             //padding: EdgeInsets.all(20),//
@@ -27,7 +59,7 @@ class MyApp extends StatelessWidget {
             width: 300,
             child: ClipOval(
               child: Image.asset('pictures/koki.png', fit: BoxFit.cover),
-            ),
+            ),*/
 
             /*decoration: BoxDecoration(
               color: Colors.pink,
@@ -63,9 +95,5 @@ class MyApp extends StatelessWidget {
                 letterSpacing: 5,
               ),
             )*/
-          ),
-        ),
-      ),
-    );
-  }
-}
+
+
