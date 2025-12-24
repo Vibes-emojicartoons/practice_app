@@ -19,6 +19,27 @@ class MyApp extends StatelessWidget {
           actions: [InkWell(child: Icon(Icons.settings))],
         ),
         body: SafeArea(
+          child: GridView.count(
+            padding: EdgeInsets.all(8),
+            crossAxisCount: 2,
+            mainAxisSpacing: 10,
+            crossAxisSpacing: 5,
+            childAspectRatio: 0.6,
+            children: [
+              Container(color: Colors.blue),
+              Container(color: Colors.red),
+              Container(color: Colors.black),
+              Container(color: Colors.yellow),
+              Container(color: Colors.green),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+///Here is me tryign to scroll horizontally and vertically///
+/* body: SafeArea(
           child: ListView(
             padding: EdgeInsets.all(10),
             scrollDirection: Axis.horizontal,
@@ -42,12 +63,7 @@ class MyApp extends StatelessWidget {
               Container(color: Colors.brown, width: 500),
             ],
           ),
-        ),
-      ),
-    );
-  }
-}
-
+        ), */
 
 
 //Placing an image in different ways//
