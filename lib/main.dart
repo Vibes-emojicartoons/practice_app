@@ -19,7 +19,51 @@ class MyApp extends StatelessWidget {
           actions: [InkWell(child: Icon(Icons.settings))],
         ),
         body: SafeArea(
-          child: GridView.count(
+          child: Center(
+            child: Container(
+              padding: EdgeInsets.all(10),
+              color: Colors.blue,
+              height: 100,
+              child: Row(
+                /* mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisSize: MainAxisSize.max, */
+                children: [
+                  _redbox(),
+                  Spacer(flex: 1),
+                  _redbox(),
+                  Spacer(flex: 3),
+                  _redbox(),
+                  Spacer(flex: 6),
+                  _redbox(),
+                  /* SizedBox(height: 100, width: 100, child: _redbox()),
+                  //Create a gap without the widget child//
+                  SizedBox(width: 15),
+                  Flexible(fit: FlexFit.tight, flex: 2, child: _redbox()),
+                  Flexible(fit: FlexFit.tight, flex: 4, child: _redbox()),
+                  Flexible(fit: FlexFit.tight, flex: 6, child: _redbox()), */
+                  /* Expanded(child: _redbox(), flex: 3),
+                  SizedBox(height: 80, child: _redbox()),
+                  Expanded(child: _redbox(), flex: 2),
+                  _redbox(), */
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _redbox() {
+    return Container(
+      height: 50,
+      width: 50,
+      decoration: BoxDecoration(color: Colors.red, border: Border.all()),
+    );
+  }
+}
+///Here I was learning grid.///
+/* child: GridView.count(
             padding: EdgeInsets.all(8),
             crossAxisCount: 2,
             mainAxisSpacing: 10,
@@ -33,11 +77,8 @@ class MyApp extends StatelessWidget {
               Container(color: Colors.green),
             ],
           ),
-        ),
-      ),
-    );
-  }
-}
+        ), */
+
 ///Here is me tryign to scroll horizontally and vertically///
 /* body: SafeArea(
           child: ListView(
