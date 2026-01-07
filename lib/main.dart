@@ -18,7 +18,48 @@ class MyApp extends StatelessWidget {
           title: Center(child: Text("Ke nna Bola")),
           actions: [InkWell(child: Icon(Icons.settings))],
         ),
-        body: SafeArea(
+        body: SafeArea(child: Center(child: _stack())),
+      ),
+    );
+  }
+
+  Widget _stack() {
+    return Container(
+      width: 300,
+      height: 300,
+      color: Colors.blue,
+      child: Stack(
+        /* alignment: Alignment.bottomLeft, 
+        alignment: Alignment(-1, 0), */
+        children: <Widget>[
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(width: 200, height: 200, color: Colors.redAccent),
+          ),
+          Align(
+            alignment: Alignment.topCenter,
+            child: Container(width: 100, height: 100, color: Colors.green),
+          ),
+          Positioned(
+            top: 0,
+            left: 0,
+            child: Container(width: 100, height: 100, color: Colors.yellow),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/* Widget _redbox() {
+    return Container(
+      height: 50,
+      width: 50,
+      decoration: BoxDecoration(color: Colors.red, border: Border.all()),
+    );
+  } */
+
+/* body: SafeArea(
           child: Center(
             child: Container(
               padding: EdgeInsets.all(10),
@@ -49,19 +90,8 @@ class MyApp extends StatelessWidget {
               ),
             ),
           ),
-        ),
-      ),
-    );
-  }
+  */
 
-  Widget _redbox() {
-    return Container(
-      height: 50,
-      width: 50,
-      decoration: BoxDecoration(color: Colors.red, border: Border.all()),
-    );
-  }
-}
 ///Here I was learning grid.///
 /* child: GridView.count(
             padding: EdgeInsets.all(8),
