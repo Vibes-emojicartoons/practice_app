@@ -18,12 +18,105 @@ class MyApp extends StatelessWidget {
           title: Center(child: Text("Ke nna Bola")),
           actions: [InkWell(child: Icon(Icons.settings))],
         ),
-        body: SafeArea(child: Center(child: _stack())),
+        body: SafeArea(
+          child: Wrap(
+            alignment: WrapAlignment.center,
+            spacing: 8.0,
+            runSpacing: 4.0,
+            children: <Widget>[
+              Chip(
+                avatar: CircleAvatar(
+                  backgroundColor: Colors.black,
+                  child: const Text(
+                    'KB',
+                    style: TextStyle(fontSize: 10, color: Colors.amber),
+                  ),
+                ),
+                label: const Text('Koketso Bola  Matshe'),
+              ),
+              Chip(
+                avatar: CircleAvatar(
+                  backgroundColor: Colors.blue,
+                  child: const Text(
+                    'OL',
+                    style: TextStyle(fontSize: 10, color: Colors.white),
+                  ),
+                ),
+                label: const Text('Manqoba'),
+              ),
+              Chip(
+                avatar: CircleAvatar(
+                  backgroundColor: Colors.yellow,
+                  child: const Text(
+                    'TP',
+                    style: TextStyle(fontSize: 10, color: Colors.black),
+                  ),
+                ),
+                label: const Text('Tebogo Preshhh'),
+              ),
+              Chip(
+                avatar: CircleAvatar(
+                  backgroundColor: Colors.black,
+                  child: const Text(
+                    'KB',
+                    style: TextStyle(fontSize: 10, color: Colors.amber),
+                  ),
+                ),
+                label: const Text('Koketso Bola  Matshe'),
+              ),
+              Chip(
+                avatar: CircleAvatar(
+                  backgroundColor: Colors.yellow,
+                  child: const Text(
+                    'TP',
+                    style: TextStyle(fontSize: 10, color: Colors.black),
+                  ),
+                ),
+                label: const Text('Tebogo Preshhh'),
+              ),
+              Chip(
+                avatar: CircleAvatar(
+                  backgroundColor: Colors.yellow,
+                  child: const Text(
+                    'TP',
+                    style: TextStyle(fontSize: 10, color: Colors.black),
+                  ),
+                ),
+                label: const Text('Tebogo Preshhh'),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
+}
 
-  Widget _stack() {
+/*Here i looked at a card widget.
+child: Card(
+            elevation: 5,
+            color: Colors.black,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const ListTile(
+                  leading: Icon(Icons.access_time_filled, color: Colors.amber),
+                  title: Text(
+                    "Koketso you need to keep on pushing, in God's name",
+                    style: TextStyle(
+                      color: Colors.amber,
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  subtitle: Text("Pushing will help you moving foward!"),
+                ),
+              ],
+            ),
+          ),*/ 
+
+/* I was aligning using possistion and align attribute.
+ Widget _stack() {
     return Container(
       width: 300,
       height: 300,
@@ -49,7 +142,7 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
-}
+  */
 
 /* Widget _redbox() {
     return Container(
