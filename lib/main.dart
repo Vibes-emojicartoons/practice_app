@@ -1,25 +1,60 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
+//setting my widget//
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+  @override
+  _MyAppState createState() {
+    return _MyAppState();
+  }
+}
+//extending my statfulwidget//
+
+class _MyAppState extends State<MyApp> {
+  int count = 0;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.brown[500],
-          leading: Icon(Icons.menu),
-          title: Center(child: Text("Ke nna Bola")),
-          actions: [InkWell(child: Icon(Icons.settings))],
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('$count'),
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    count++;
+                  });
+                },
+                child: Text('Jahneh'),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    count--;
+                  });
+                  ();
+                },
+                child: Text('Remove'),
+              ),
+            ],
+          ),
         ),
-        body: SafeArea(
-          child: Wrap(
+      ),
+    );
+  }
+}
+
+/*child: Wrap(
             alignment: WrapAlignment.center,
             spacing: 8.0,
             runSpacing: 4.0,
@@ -86,11 +121,7 @@ class MyApp extends StatelessWidget {
               ),
             ],
           ),
-        ),
-      ),
-    );
-  }
-}
+*/
 
 /*Here i looked at a card widget.
 child: Card(
