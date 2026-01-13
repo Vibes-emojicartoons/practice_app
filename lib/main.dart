@@ -1,5 +1,6 @@
 // ignore_for_file: library_private_types_in_public_api
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,11 +10,100 @@ void main() {
 class _MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: CustomBottonNavigationBar());
+    return MaterialApp(home: FirstPage());
   }
 }
 
-class CustomBottonNavigationBar extends StatefulWidget {
+//Page 1//
+class FirstPage extends StatelessWidget {
+  const FirstPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('First Page')),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute //transition vertically//
+              (
+                builder: (context) {
+                  return SecondPage();
+                },
+              ),
+            );
+          },
+          child: Text('First Page'),
+        ),
+      ),
+    );
+  }
+}
+
+//Page 2//
+class SecondPage extends StatelessWidget {
+  const SecondPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Second Page')),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              CupertinoPageRoute //Transition horizontally
+              (
+                builder: (context) {
+                  return ThirdPage();
+                },
+              ),
+            );
+          },
+          child: Text('Second Page'),
+        ),
+      ),
+    );
+  }
+}
+
+//Page 3//
+class ThirdPage extends StatelessWidget {
+  const ThirdPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('ThirdPage')),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              PageRouteBuilder //custom transition page
+              (
+                pageBuilder: (c, a1, a2) => SecondPage(),
+                transitionsBuilder: (c, a1, a2, child) =>
+                    FadeTransition(opacity: a1, child: child),
+                transitionDuration: Duration(seconds: 2),
+              ),
+            );
+          },
+          child: Text('Third Page'),
+        ),
+      ),
+    );
+  }
+}
+
+
+//Here I navigate content//
+/* class CustomBottonNavigationBar extends StatefulWidget {
+  const CustomBottonNavigationBar({super.key});
+
   // I removed the constractor from here.//
   @override
   State<CustomBottonNavigationBar> createState() =>
@@ -64,7 +154,7 @@ class _CustomBottonNavigationBarState extends State<CustomBottonNavigationBar> {
     );
   }
 }
-
+ */
 //setting my widget//
 
 /* class MyApp extends StatefulWidget {
