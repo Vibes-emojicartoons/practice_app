@@ -3,11 +3,71 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(_MyApp());
 }
+
+class _MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(home: CustomBottonNavigationBar());
+  }
+}
+
+class CustomBottonNavigationBar extends StatefulWidget {
+  // I removed the constractor from here.//
+  @override
+  State<CustomBottonNavigationBar> createState() =>
+      _CustomBottonNavigationBarState();
+}
+
+class _CustomBottonNavigationBarState extends State<CustomBottonNavigationBar> {
+  //change color when an icon is selected//
+  int _selectedIndex = 0;
+  void _onItemTapped(int index) {
+    //onTimeTapped is a function from BottomNavigationBar//
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  //setting pages for the navigation//
+  List<Widget> get _page => [
+    Text('Home', style: TextStyle(color: Colors.red)),
+    Container(width: 100, height: 50, color: Colors.pink),
+    Text('Info'),
+  ];
+  /* final List<Widget> _page = [
+    Container(width: 100, height: 50, color: Colors.red),
+    Container(width: 100, height: 50, color: Colors.blue),
+    Container(width: 100, height: 50, color: Colors.pink),
+  ]; */
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(child: _page[_selectedIndex]),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType
+            .fixed, //you can also use "shifting" for the nav bar to change color according to the color of the icon inside BottomNavigationBarItem//
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Settings',
+          ),
+          BottomNavigationBarItem(icon: Icon(Icons.info), label: 'Info'),
+        ],
+        selectedItemColor: Colors.pink,
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped, //here is the index//
+      ),
+    );
+  }
+}
+
 //setting my widget//
 
-class MyApp extends StatefulWidget {
+/* class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   @override
@@ -53,7 +113,7 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
-
+ */
 /*child: Wrap(
             alignment: WrapAlignment.center,
             spacing: 8.0,
